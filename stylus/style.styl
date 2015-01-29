@@ -1,0 +1,80 @@
+@import 'nib'
+
+wet_asphalt = #2c3e50
+midnight_blue = #34495e
+concrete = #95a5a6
+asbestos = #7f8c8d
+nephritis = #2ecc71
+
+*
+  box-sizing(border-box)
+
+.clearfix:before, .clearfix:after
+  content " "
+  display table
+
+.clearfix:after
+  clear both
+
+.clearfix
+  *zoom 1
+
+.left
+  float left
+
+.right
+  float right
+
+body
+  font-family: Helvetica, sans-serif
+  margin: 0
+  overflow: hidden
+
+html, body, #main, .sidebar, .panel
+  height: 100%
+
+header
+  height: 50px
+  color: white
+  background: asbestos
+  width: 100%
+  display: block
+  margin: 0
+
+#main
+  width: 100%
+
+.sidebar, .panel
+  position: absolute
+  top: 50px
+  left: 0
+
+.sidebar
+  width: 250px
+  background: wet_asphalt
+  color: white
+
+  h2
+    margin: 20px
+
+  ul
+    padding: 0px
+    margin: 0px
+
+  li
+    padding: 15px 0px 15px 20px
+    margin: 0px
+    list-style-type: none
+    font-size: 20px
+    cursor: pointer
+
+  li:hover
+    background: midnight_blue
+
+.panel
+  margin-left: 250px
+  background: concrete
+  padding: 20px
+  width: 100%
+
+
