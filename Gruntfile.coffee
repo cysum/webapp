@@ -12,17 +12,10 @@ module.exports = (grunt) ->
             'vendor/jquery/jquery.js'
           ]
 
-    coffee:
-      compile:
-        files:
-          'js/all.js': 'coffee/*.coffee'
-
     stylus:
       compile:
         files:
           'css/style.css': 'stylus/style.styl'
-
-    clean: ['js/*.js', 'css/*.css', 'build']
 
     watch:
       scripts:
@@ -42,23 +35,15 @@ module.exports = (grunt) ->
           keepalive: true
           port: 8002
 
-    copy:
+    browserify:
       main:
-        files: [
-          expand: true
-          src: [
-            # App stuff
-            'index.html'
-            'js/**'
-            'css/**'
-
-            # CSS and fonts
-            'vendor/normalize-css/normalize.css'
-          ]
-          dest: 'build'
-        ]
+        options:
+          browserifyOptions:
+            extensions: '.coffee'
+          transform: ['coffeeify']
+        files:
+          'js/main.js': 'coffee/main.coffee'
 
   require('load-grunt-tasks')(grunt)
 
-  grunt.registerTask 'default', ['stylus']
-  grunt.registerTask 'build', ['default', 'copy', 'uglify']
+  grunt.registerTask 'default', ['stylus', 'jst', 'browserify']

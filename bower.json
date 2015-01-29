@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "netvis",
   "version": "0.0.1",
   "ignore": [
     "**/.*",
@@ -7,7 +7,7 @@
     "components"
   ],
   "dependencies": {
-    "jquery": "1",
-    "normalize-css": "2"
+    "jquery": "2",
+    "backbone": "~1.1.2"
   }
 }

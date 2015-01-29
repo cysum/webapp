@@ -1,12 +1,14 @@
 VulnView = Backbone.View.extend
   tagName: 'li'
 
+  className: 'vuln'
+
+  initialize: (data) ->
+    @data = data
+
   render: ->
-    @$el.html(JST.vuln({
-      title: "Some title",
-      description: "A bad thing happens"
-    }))
+    @$el.html(JST.vuln(@data))
 
     return this
 
-Module.exports = VulnView
+module.exports = VulnView
