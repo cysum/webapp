@@ -19,30 +19,28 @@
 <div id="main">
   <div class="sidebar">
     <h2>Devices</h2>
-    <ul>
-      <li>Some server</li>
-      <li>Another server</li>
-      <li>Some router</li>
+    <ul data-bind="foreach: hosts">
+      <li data-bind="text: addresses.ipv4, click: $parent.selectedHost"></li>
     </ul>
   </div>
-  <div class="panel">
-    No device selected.
+  <div class="panel" data-bind="with: selectedHost">
 
-    <h1>Some server</h1>
+    <h1 data-bind="text: addresses.ipv4"></h1>
     <div class="vulns">
-      <h2>Vulnerabilities</h2>
-      <ul class="vulnlist">
-
-      </ul>
+      <h2>Services</h2>
+      <div class="vulnlist" data-bind="foreach: {data: Object.keys(tcp), as: '_port_key'}">
+          <h3 data-bind="text: $parent.tcp[_port_key].name"></h3>
+          <p><strong>Product:&#09;</strong><span data-bind="text: $parent.tcp[_port_key].product"></span></p>
+      </div>
     </div>
   </div>
 </div>
 
 <script src="vendor/jquery/dist/jquery.js"></script>
 <script src="vendor/underscore/underscore.js"></script>
-<script src="vendor/backbone/backbone.js"></script>
+<script src="vendor/knockout/dist/knockout.js"></script>
 <script src="js/templates/index.js" charset="utf-8"></script>
-<script src="js/main.js" charset="utf-8"></script>
+<script src="js/ben-main.js" charset="utf-8"></script>
 
 </body>
 
