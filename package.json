@@ -13,7 +13,8 @@
     "grunt-contrib-connect": "*",
     "grunt-contrib-jst": "^0.6.0",
     "grunt-contrib-stylus": "*",
-    "grunt-contrib-watch": "*"
+    "grunt-contrib-watch": "*",
+    "load-grunt-tasks": "^3.1.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
