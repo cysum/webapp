@@ -20,7 +20,9 @@
   <div class="sidebar">
     <h2>Devices</h2>
     <ul data-bind="foreach: hosts">
-      <li data-bind="text: addresses.ipv4, click: $parent.selectedHost"></li>
+      <li data-bind="text: addresses.ipv4, click: $parent.selectedHost">
+          <img src='images/spiffygif_78x78.gif'>
+      </li>
     </ul>
   </div>
   <div class="panel" data-bind="with: selectedHost">
@@ -28,9 +30,17 @@
     <h1 data-bind="text: addresses.ipv4"></h1>
     <div class="vulns">
       <h2>Services</h2>
-      <div class="vulnlist" data-bind="foreach: {data: Object.keys(tcp), as: '_port_key'}">
+      <div data-bind="foreach: {data: Object.keys(tcp), as: '_port_key'}">
           <h3 data-bind="text: $parent.tcp[_port_key].name"></h3>
           <p><strong>Product:&#09;</strong><span data-bind="text: $parent.tcp[_port_key].product"></span></p>
+          <p><strong>Version:&#09;</strong><span data-bind="text: $parent.tcp[_port_key].version">Unknown</span></p>
+          <p><strong>CPE:&#09;</strong><span data-bind="text: $parent.tcp[_port_key].cpe">Unknown</span></p>
+          <h4>Vulnerabilities</h4>
+          <div class="vulnlist" data-bind="foreach: $parent.tcp[_port_key].vulnerabilities">
+              <p><strong>Summary: </strong><span data-bind="text: summary"></span></p>
+              <p><strong>CVE: </strong><span data-bind="text: id"></span></p>
+              <p><strong>Date Published: </strong><span data-bind="text: Published"></span></p>
+          </div>
       </div>
     </div>
   </div>
